@@ -35,6 +35,59 @@ We believe in **Digital Sovereignty**—the idea that individuals should have fu
 - **Descriptive Filenames**: If no faces are detected, the tool generates descriptive filenames based on the content of the image.
 - **Local Storage**: All photos and data remain on your device, giving you full control over your privacy.
 - **Open-Source**: Built with transparency and community collaboration in mind. You can contribute to the project, report bugs, or help improve the software.
+- **Handle multiple images per person** to improve recognition accuracy over time.
+
+- Built-in logic to handle age differences by comparing multiple encodings per person.
+
+- **CLI functionality for easy face training** and batch photo processing (Goal is to eventually deploy as webapp).
+
+---
+
+## **Project Structure**
+
+```
+photo-face-renamer/
+│
+├── known_faces/               # User adds known faces here (one folder per person)
+│   ├── john_doe/
+│   │   ├── john_25.jpg
+│   │   ├── john_35.jpg
+│   │   └── john_45.jpg
+│   └── jane_smith/
+│       ├── jane_teen.jpg
+│       └── jane_30s.jpg
+│
+├── data/                      # Stores serialized data (encodings, etc.)
+│   └── known_faces.pkl
+│
+├── photos_to_process/         # Folder for photos to be processed
+│
+├── processed_photos/          # Output folder with renamed photos
+│
+├── main.py                    # Main CLI entry point
+│
+├── requirements.txt           # Dependencies
+│
+├── LICENSE                    # MIT License
+│
+└── README.md                  # Project documentation (this file)
+```
+
+---
+
+## **Handling Age Differences**
+
+The facial recognition component considers facial changes over time by:
+
+- Allowing multiple images per person in the known_faces/ folder. The application will compare target photos against all encodings for each person.
+
+- Adjusting the recognition threshold as needed for better accuracy.
+
+To improve accuracy:
+
+- Add images showing different ages and appearances (e.g., different haircuts, with/without facial hair).
+
+- Higher threshold values may reduce false negatives but could increase false positives. The default is 0.6.
 
 ---
 
@@ -58,7 +111,7 @@ To get started with the **Photo Face Renamer**, follow these steps:
      ```
    - On **macOS/Linux**:
      ```bash
-     // cd into your project directory and run the following
+     # cd into your project directory and run the following
      python3 -m venv venv
      source venv/bin/activate
      ```
