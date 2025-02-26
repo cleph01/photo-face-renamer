@@ -58,6 +58,7 @@ To get started with the **Photo Face Renamer**, follow these steps:
      ```
    - On **macOS/Linux**:
      ```bash
+     // cd into your project directory and run the following
      python3 -m venv venv
      source venv/bin/activate
      ```
