@@ -1,7 +1,3 @@
-Here's a draft for a compelling `README.md` file that includes both the technical aspects of the project and the personal mission behind it:
-
----
-
 # Photo Face Renamer
 
 Welcome to **Photo Face Renamer**, an open-source tool designed to help you organize and secure your photo collection with facial recognition technology. This software renames photos based on recognized faces or adds descriptive filenames when faces can't be recognized, ensuring your photos are organized and easy to find, all while keeping your data private and under your control.
